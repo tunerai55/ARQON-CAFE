@@ -206,10 +206,11 @@ button {
 <body>
 
 <main>
-<button onclick="document.getElementById('music').play()">Play Music 🎵</button>
+<button onclick="playMusic()">Play Music 🎵</button>
 
-<audio id="music" loop>
+<audio id="music" loop muted playsinline>
     <source src="music1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
 </audio>
 
 <h1>Happy Propose Day, My Awesome Friend! 💖</h1>
@@ -355,6 +356,27 @@ function sendMyVote() {
     
     const mailtoLink = `mailto:\( {yourEmail}?subject= \){encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.open(mailtoLink, '_blank');
+}
+
+// Add this in your <script> (can be at the bottom)
+function playMusic() {
+    const audio = document.getElementById('music');
+    if (audio.paused) {
+        audio.muted = false;
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise
+                .then(() => {
+                    console.log("Music started!");
+                })
+                .catch(err => {
+                    console.error("Autoplay prevented:", err);
+                    // Optional: alert("Tap the button again — browser needs your permission!");
+                });
+        }
+    } else {
+        audio.pause();  // Optional: allow pause on second tap
+    }
 }
 </script>
 
