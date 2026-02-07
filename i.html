@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Rose Day, Buddy! 🌹</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to bottom, #fff3e0, #ffe0b2);
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Title bounce animation */
+h1 {
+    font-size: 3.5em;
+    margin: 20px;
+    color: #e65100;
+    text-shadow: 2px 2px 8px #ffb74d;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+.rose-container {
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    animation: spin 8s linear infinite;
+}
+
+/* Slow spinning image */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.wishes {
+    font-size: 1.6em;
+    line-height: 1.5;
+    margin: 40px;
+    color: #424242;
+}
+
+.signature {
+    font-size: 1.8em;
+    color: #ef6c00;
+    margin-top: 50px;
+}
+
+/* Floating emojis */
+.floating {
+    position: fixed;
+    font-size: 24px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="document.getElementById('music').play()">Play Music 🎵</button>
+
+<audio id="music" loop>
+    <source src="music1.mp3" type="audio/mpeg">
+</audio>
+
+
+<h1>Happy Rose Day, My Awesome Friend! 🌹😊</h1>
+
+<div class="rose-container">
+<img src="img.jpeg" alt="Bright cheerful roses">
+</div>
+
+<div class="wishes">
+<p>Just dropping by with some friendly petals to say you're the best!</p>
+<p>Thanks for the laughs and fun chaos!</p>
+<p>May your day be full of smiles and zero stress!</p>
+<p>You're one in a million — keep rocking! 🚀</p>
+</div>
+
+<div class="signature">
+From your pal, Mounesh 🌟
+</div>
+
+<script>
+/* Floating roses */
+function createFloating() {
+    const el = document.createElement("div");
+    el.classList.add("floating");
+    el.innerText = "🌹";
+    el.style.left = Math.random() * window.innerWidth + "px";
+    el.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 8000);
+}
+setInterval(createFloating, 500);
+
+/* Irritating pop-up every 10 seconds */
+setInterval(() => {
+    alert("🌹 You received another ROSE! 🌹");
+}, 10000);
+</script>
+
+</body>
+</html>
