@@ -6,6 +6,17 @@
 <title>Happy Propose Day, Buddy! 💖</title>
 
 <style>
+:root {
+    --primary: #ec407a;
+    --dark-pink: #c2185b;
+    --light-pink: #f8bbd0;
+    --text: #333;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -13,37 +24,48 @@ html {
 body {
     margin: 0;
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(to bottom, #fce4ec, #f8bbd0);
-    color: #333;
+    background: linear-gradient(to bottom, #fce4ec, var(--light-pink));
+    color: var(--text);
     text-align: center;
     overflow-x: hidden;
+    min-height: 100vh;
+    font-size: clamp(16px, 3.5vw, 18px); /* scalable base font */
 }
 
-section {
-    padding: 40px 15px;
-    max-width: 600px;
-    margin: auto;
+/* Main content wrapper */
+main {
+    padding: clamp(20px, 5vw, 40px) 15px;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
+/* Title */
 h1 {
-    font-size: 2.2em;
-    margin: 10px;
-    color: #c2185b;
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    margin: 10px 0 20px;
+    color: var(--dark-pink);
     text-shadow: 2px 2px 8px #f48fb1;
-    animation: bounce 1s infinite alternate;
+    animation: bounce 1.2s infinite alternate;
 }
 
 @keyframes bounce {
     from { transform: translateY(0); }
-    to { transform: translateY(-8px); }
+    to { transform: translateY(-10px); }
+}
+
+/* Image container */
+.rose-container {
+    margin: 20px auto;
+    max-width: 280px;
 }
 
 .rose-container img {
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
+    height: auto;
     border-radius: 50%;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    animation: spin 15s linear infinite;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    animation: spin 20s linear infinite;
+    object-fit: cover;
 }
 
 @keyframes spin {
@@ -51,55 +73,70 @@ h1 {
     to { transform: rotate(360deg); }
 }
 
+/* Wishes text */
 .wishes {
-    font-size: 1.2em;
+    font-size: clamp(1.1rem, 3.5vw, 1.3rem);
     line-height: 1.6;
-    margin-top: 25px;
+    margin: 25px 0;
 }
 
+/* Signature */
 .signature {
-    font-size: 1.5em;
+    font-size: clamp(1.3rem, 4vw, 1.6rem);
     color: #ad1457;
-    margin-top: 30px;
+    margin: 30px 0;
+    font-weight: bold;
 }
 
+/* Buttons */
 button {
-    padding: 10px 20px;
+    padding: 12px 28px;
     border: none;
-    border-radius: 25px;
-    background: #ec407a;
+    border-radius: 30px;
+    background: var(--primary);
     color: white;
-    font-size: 16px;
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
     cursor: pointer;
-    margin: 10px 5px;
+    margin: 12px 8px;
+    min-width: 140px;
+    touch-action: manipulation; /* better mobile feel */
 }
 
-/* Poll styles */
+/* Poll section */
 .poll-section {
-    margin: 40px auto;
+    margin: clamp(30px, 6vw, 50px) auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.75);
     border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    max-width: 500px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    max-width: 90%;
 }
 
 .poll-question {
-    font-size: 1.4em;
-    color: #c2185b;
-    margin-bottom: 20px;
+    font-size: clamp(1.3rem, 4.5vw, 1.5rem);
+    color: var(--dark-pink);
+    margin-bottom: 25px;
 }
 
 .poll-options label {
-    display: block;
-    margin: 15px 0;
-    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px 0;
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
     cursor: pointer;
+    padding: 10px;
+    border-radius: 12px;
+    transition: background 0.3s;
+}
+
+.poll-options label:hover {
+    background: rgba(236, 64, 122, 0.1);
 }
 
 .poll-options input[type="radio"] {
-    margin-right: 10px;
-    transform: scale(1.3);
+    margin-right: 12px;
+    transform: scale(1.4);
 }
 
 #no-option {
@@ -112,48 +149,63 @@ button {
 
 @keyframes nope {
     0% { transform: translateX(0); }
-    25% { transform: translateX(-30px) scale(1.1); }
-    50% { transform: translateX(30px) scale(1.1); }
-    75% { transform: translateX(-20px) scale(1.05); }
+    25% { transform: translateX(-40px) scale(1.1); }
+    50% { transform: translateX(40px) scale(1.1); }
+    75% { transform: translateX(-25px) scale(1.05); }
     100% { transform: translateX(0) scale(1); }
 }
 
-#poll-results {
+/* Results & messages */
+#poll-results, #voted-message, #send-result, #nope-message {
     margin-top: 20px;
-    font-size: 1.2em;
+    font-size: clamp(1.1rem, 3.5vw, 1.25rem);
 }
 
 #voted-message, #nope-message {
     color: #d81b60;
     font-weight: bold;
-    margin-top: 15px;
-    font-size: 1.1em;
 }
 
-/* Floating hearts & roses */
+#send-result button {
+    background: #d81b60;
+    font-size: 1.1rem;
+}
+
+/* Floating emojis - less aggressive on mobile */
 .floating {
     position: fixed;
-    bottom: -40px;
-    font-size: 24px;
+    bottom: -50px;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    pointer-events: none;
     animation: floatUp linear forwards;
+    z-index: -1;
 }
 
 @keyframes floatUp {
-    from { transform: translateY(0); opacity: 1; }
-    to { transform: translateY(-110vh); opacity: 0; }
+    from { transform: translateY(0); opacity: 0.9; }
+    to { transform: translateY(-120vh); opacity: 0; }
 }
 
-@media (max-width: 480px) {
-    h1 { font-size: 1.8em; }
-    .wishes { font-size: 1em; }
-    .poll-question { font-size: 1.2em; }
+/* Media Queries - adjustments for larger screens */
+@media (min-width: 481px) {
+    main { padding: 50px 20px; }
+    .rose-container { max-width: 320px; }
+    .floating { font-size: 2.5rem; }
+}
+
+@media (min-width: 768px) {
+    main { max-width: 800px; padding: 60px 30px; }
+    .rose-container { max-width: 380px; }
+    h1 { font-size: 3.2rem; }
+    .poll-section { max-width: 600px; padding: 30px; }
+    .poll-options label { font-size: 1.4rem; margin: 25px 0; }
 }
 </style>
 </head>
 
 <body>
 
-<section>
+<main>
 <button onclick="document.getElementById('music').play()">Play Music 🎵</button>
 
 <audio id="music" loop>
@@ -193,6 +245,11 @@ button {
         YAY! You said YES — smartest decision of the year 😍✨
     </div>
 
+    <div id="send-result" style="display: none;">
+        <p>Now officially seal the deal — send me your YES! 💌</p>
+        <button onclick="sendMyVote()">Confirm & Send to Mounesh 🚀💖</button>
+    </div>
+
     <div id="nope-message" style="display: none;">
         Nope nope nope! Try again, coward! 😜 (Yes is the only valid choice here)
     </div>
@@ -201,28 +258,31 @@ button {
 <div class="signature">
 From your forever pal, Mounesh 🌟
 </div>
-</section>
+</main>
 
 <script>
-/* Floating emojis */
+// Floating emojis - slower interval on mobile
 function createFloat() {
     const el = document.createElement("div");
     el.classList.add("floating");
     const emojis = ["❤️", "🌹", "💘", "💖", "😏", "🚀"];
     el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    el.style.left = Math.random() * window.innerWidth + "px";
-    el.style.animationDuration = (5 + Math.random() * 5) + "s";
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDuration = (6 + Math.random() * 8) + "s";
     document.body.appendChild(el);
-    setTimeout(() => el.remove(), 10000);
+    setTimeout(() => el.remove(), 15000);
 }
-setInterval(createFloat, 400);
 
-/* Poll Logic */
+// Fewer on small screens
+const isMobile = window.innerWidth <= 480;
+setInterval(createFloat, isMobile ? 800 : 400);
+
+/* Poll Logic (unchanged) */
 document.addEventListener("DOMContentLoaded", function () {
     const pollForm = document.getElementById("poll-form");
-    const voteBtn = document.getElementById("vote-btn");
     const resultsDiv = document.getElementById("poll-results");
     const votedMsg = document.getElementById("voted-message");
+    const sendDiv = document.getElementById("send-result");
     const nopeMsg = document.getElementById("nope-message");
     const yesCountEl = document.getElementById("yes-count");
     const noCountEl = document.getElementById("no-count");
@@ -244,6 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (hasVoted) {
         updateResults();
         votedMsg.style.display = "block";
+        sendDiv.style.display = "block";
         pollForm.style.display = "none";
         nopeMsg.style.display = "none";
     } else if (noAttempts > 0) {
@@ -252,7 +313,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     pollForm.addEventListener("submit", function (e) {
         e.preventDefault();
-
         if (hasVoted) return;
 
         const selected = document.querySelector('input[name="vote"]:checked');
@@ -268,34 +328,34 @@ document.addEventListener("DOMContentLoaded", function () {
             hasVoted = true;
             pollForm.style.display = "none";
             votedMsg.style.display = "block";
+            sendDiv.style.display = "block";
             nopeMsg.style.display = "none";
             updateResults();
         } else {
-            // NO attempt → bounce + block
             noAttempts++;
             localStorage.setItem("noAttempts", noAttempts);
-
             noLabel.classList.add("bounce");
             setTimeout(() => noLabel.classList.remove("bounce"), 600);
-
-            // Deselect No
             selected.checked = false;
-
             nopeMsg.style.display = "block";
             if (noAttempts >= 3) {
                 nopeMsg.innerHTML = "STOP RESISTING! Yes is destiny 😈💕 Just click it already!";
             }
-
-            // Optional: after too many nos, auto-select Yes (uncomment if you want max chaos)
-            // if (noAttempts >= 5) {
-            //     document.querySelector('input[value="yes"]').checked = true;
-            //     alert("Okay fine, I'm helping you... YES it is! 😂");
-            // }
         }
     });
 
     updateResults();
 });
+
+/* Send email */
+function sendMyVote() {
+    const yourEmail = "mouneshhpattar944@gmail.com";  // ← CHANGE TO YOUR EMAIL
+    const subject = "She Said YES on Propose Day! 💖🚀";
+    const body = "Hey Mounesh!\n\nYES I accept being your permanent partner-in-crime forever! 😏💕\n\nNo escaping now — deal sealed!\n\nSent from your epic Propose Day page 🌟\n\nLove (or chaos),\nAnushri";
+    
+    const mailtoLink = `mailto:\( {yourEmail}?subject= \){encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, '_blank');
+}
 </script>
 
 </body>
