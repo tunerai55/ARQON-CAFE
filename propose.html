@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Propose Day, Buddy! 💖</title>
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to bottom, #fce4ec, #f8bbd0);
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Responsive container */
+section {
+    padding: 40px 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Title animation */
+h1 {
+    font-size: 2.2em;
+    margin: 10px;
+    color: #c2185b;
+    text-shadow: 2px 2px 8px #f48fb1;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
+}
+
+.rose-container img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.wishes {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-top: 25px;
+}
+
+.signature {
+    font-size: 1.5em;
+    color: #ad1457;
+    margin-top: 30px;
+}
+
+/* Music button */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #ec407a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Floating hearts & roses */
+.floating {
+    position: fixed;
+    bottom: -40px;
+    font-size: 24px;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+    h1 { font-size: 1.8em; }
+    .wishes { font-size: 1em; }
+}
+</style>
+</head>
+
+<body>
+
+<section>
+<button onclick="document.getElementById('music').play()">Play Music 🎵</button>
+
+<audio id="music" loop>
+    <source src="music1.mp3" type="audio/mpeg">
+</audio>
+
+<h1>Happy Propose Day, My Awesome Friend! 💖</h1>
+
+<div class="rose-container">
+<img src="propose.jpeg" alt="Cute proposal heart or ring moment">
+</div>
+
+<div class="wishes">
+<p>Yo buddy, time to level up our friendship chaos! 🌟</p>
+<p>Will you be my permanent partner-in-crime, forever sidekick, and the one who tolerates my nonsense? 😏</p>
+<p>Promise: more laughs, zero boring days, and I'll always have your back (and snacks).</p>
+<p>You're stuck with me anyway — so say YES already! 🚀💕</p>
+</div>
+
+<div class="signature">
+From your forever pal, Mounesh 🌟
+</div>
+</section>
+
+<script>
+/* Continuous floating hearts & roses */
+function createFloat() {
+    const el = document.createElement("div");
+    el.classList.add("floating");
+    const emojis = ["❤️", "🌹", "💘", "💖"];
+    el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * window.innerWidth + "px";
+    el.style.animationDuration = (5 + Math.random() * 5) + "s";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 10000);
+}
+
+setInterval(createFloat, 400);
+</script>
+
+</body>
+</html>
