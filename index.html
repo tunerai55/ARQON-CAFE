@@ -6,20 +6,30 @@
 <title>Happy Rose Day, Buddy! 🌹</title>
 
 <style>
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background: linear-gradient(to bottom, #fff3e0, #ffe0b2);
     color: #333;
     text-align: center;
-    padding: 20px;
     overflow-x: hidden;
 }
 
-/* Title bounce animation */
+/* Responsive container */
+section {
+    padding: 40px 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Title animation */
 h1 {
-    font-size: 3.5em;
-    margin: 20px;
+    font-size: 2.2em;
+    margin: 10px;
     color: #e65100;
     text-shadow: 2px 2px 8px #ffb74d;
     animation: bounce 1s infinite alternate;
@@ -27,71 +37,83 @@ h1 {
 
 @keyframes bounce {
     from { transform: translateY(0); }
-    to { transform: translateY(-10px); }
+    to { transform: translateY(-8px); }
 }
 
-.rose-container {
-    margin: 30px auto;
-    max-width: 500px;
-}
-
-img {
-    width: 100%;
-    max-width: 350px;
+.rose-container img {
+    width: 80%;
+    max-width: 300px;
     border-radius: 50%;
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    animation: spin 8s linear infinite;
+    animation: spin 15s linear infinite;
 }
 
-/* Slow spinning image */
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
 .wishes {
-    font-size: 1.6em;
-    line-height: 1.5;
-    margin: 40px;
-    color: #424242;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-top: 25px;
 }
 
 .signature {
-    font-size: 1.8em;
+    font-size: 1.5em;
     color: #ef6c00;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
-/* Floating emojis */
+/* Music button */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #ff7043;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Floating roses */
 .floating {
     position: fixed;
+    bottom: -40px;
     font-size: 24px;
-    animation: floatUp linear infinite;
+    animation: floatUp linear forwards;
 }
 
 @keyframes floatUp {
     from {
-        transform: translateY(100vh);
+        transform: translateY(0);
         opacity: 1;
     }
     to {
-        transform: translateY(-10vh);
+        transform: translateY(-110vh);
         opacity: 0;
     }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+    h1 { font-size: 1.8em; }
+    .wishes { font-size: 1em; }
 }
 </style>
 </head>
 
 <body>
 
+<section>
 <button onclick="document.getElementById('music').play()">Play Music 🎵</button>
 
 <audio id="music" loop>
     <source src="music1.mp3" type="audio/mpeg">
 </audio>
 
-
-<h1>Happy Rose Day, My Awesome Friend! 🌹😊</h1>
+<h1>Happy Rose Day, My Awesome Friend! 🌹</h1>
 
 <div class="rose-container">
 <img src="img.jpeg" alt="Bright cheerful roses">
@@ -107,25 +129,21 @@ img {
 <div class="signature">
 From your pal, Mounesh 🌟
 </div>
+</section>
 
 <script>
-/* Floating roses */
-function createFloating() {
+/* Continuous floating roses */
+function createRose() {
     const el = document.createElement("div");
     el.classList.add("floating");
     el.innerText = "🌹";
     el.style.left = Math.random() * window.innerWidth + "px";
-    el.style.animationDuration = (4 + Math.random() * 4) + "s";
+    el.style.animationDuration = (5 + Math.random() * 5) + "s";
     document.body.appendChild(el);
-
-    setTimeout(() => el.remove(), 8000);
+    setTimeout(() => el.remove(), 10000);
 }
-setInterval(createFloating, 500);
 
-/* Irritating pop-up every 10 seconds */
-setInterval(() => {
-    alert("🌹 You received another ROSE! 🌹");
-}, 10000);
+setInterval(createRose, 400);
 </script>
 
 </body>
