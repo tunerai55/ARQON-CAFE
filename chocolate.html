@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Chocolate Day, Buddy! 🍫</title>
+
+<style>
+:root {
+    --primary: #6d4c41;       /* Chocolate brown */
+    --dark-pink: #4e342e;      /* Dark chocolate */
+    --light-pink: #d7ccc8;     /* Light cocoa */
+    --text: #333;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to bottom, #fff8e1, #efebdc);
+    color: var(--text);
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-size: clamp(16px, 3.5vw, 18px);
+}
+
+main { padding: clamp(20px, 5vw, 40px) 15px; max-width: 700px; margin: 0 auto; }
+
+h1 {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    margin: 10px 0 20px;
+    color: var(--dark-pink);
+    text-shadow: 2px 2px 8px #a1887f;
+    animation: bounce 1.2s infinite alternate;
+}
+
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+
+.rose-container { margin: 20px auto; max-width: 280px; }
+
+.rose-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    animation: spin 20s linear infinite;
+    object-fit: cover;
+}
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.wishes { font-size: clamp(1.1rem, 3.5vw, 1.3rem); line-height: 1.6; margin: 25px 0; }
+
+.signature { font-size: clamp(1.3rem, 4vw, 1.6rem); color: #5d4037; margin: 30px 0; font-weight: bold; }
+
+button {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    background: var(--primary);
+    color: white;
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
+    cursor: pointer;
+    margin: 12px 8px;
+    min-width: 140px;
+    touch-action: manipulation;
+}
+
+/* Poll styles (same as before) */
+.poll-section {
+    margin: clamp(30px, 6vw, 50px) auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    max-width: 90%;
+}
+
+.poll-question { font-size: clamp(1.3rem, 4.5vw, 1.5rem); color: var(--dark-pink); margin-bottom: 25px; }
+
+.poll-options label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px 0;
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 12px;
+    transition: background 0.3s;
+}
+
+.poll-options label:hover { background: rgba(109, 76, 65, 0.1); }
+
+.poll-options input[type="radio"] { margin-right: 12px; transform: scale(1.4); }
+
+#no-option { transition: all 0.4s ease; }
+
+#no-option.bounce { animation: nope 0.6s ease; }
+
+@keyframes nope {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-40px) scale(1.1); }
+    50% { transform: translateX(40px) scale(1.1); }
+    75% { transform: translateX(-25px) scale(1.05); }
+    100% { transform: translateX(0) scale(1); }
+}
+
+#poll-results, #voted-message, #send-result, #nope-message { margin-top: 20px; font-size: clamp(1.1rem, 3.5vw, 1.25rem); }
+
+#voted-message, #nope-message { color: #6d4c41; font-weight: bold; }
+
+#send-result button { background: #8d6e63; font-size: 1.1rem; }
+
+/* Floating chocolates */
+.floating {
+    position: fixed;
+    bottom: -50px;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: -1;
+}
+
+@keyframes floatUp { from { transform: translateY(0); opacity: 0.9; } to { transform: translateY(-120vh); opacity: 0; } }
+
+@media (min-width: 481px) {
+    main { padding: 50px 20px; }
+    .rose-container { max-width: 320px; }
+    .floating { font-size: 2.5rem; }
+}
+
+@media (min-width: 768px) {
+    main { max-width: 800px; padding: 60px 30px; }
+    .rose-container { max-width: 380px; }
+    h1 { font-size: 3.2rem; }
+    .poll-section { max-width: 600px; padding: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<main>
+<button onclick="playMusic()">Play Music 🎵</button>
+
+<audio id="music" loop muted playsinline>
+    <source src="music2.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<h1>Happy Chocolate Day, My Awesome Friend! 🍫</h1>
+
+<div class="rose-container">
+<img src="chocolate.jpeg" alt="Delicious chocolates or funny chocolate meme">
+</div>
+
+<div class="wishes">
+<p>Yo buddy, dropping some sweetness your way because you're worth every calorie! 🍫</p>
+<p>You're like my favorite chocolate — sweet, addictive, and impossible to resist 😏</p>
+<p>May your day be filled with melty goodness, zero guilt, and extra laughs!</p>
+<p>Thanks for being the best chaos partner — here's to more sugar highs together! 🚀</p>
+</div>
+
+<!-- Poll Section (kept the fun prank) -->
+<div class="poll-section">
+    <div class="poll-question">Will you accept being my chocolate-sharing partner-in-crime forever? 🍫😏</div>
+    
+    <form id="poll-form" class="poll-options">
+        <label id="yes-option"><input type="radio" name="vote" value="yes"> Yes 🍫 (obviously the correct answer)</label>
+        <label id="no-option"><input type="radio" name="vote" value="no"> No 😢 (you monster...)</label>
+        <button type="submit" id="vote-btn">Vote! 🚀</button>
+    </form>
+
+    <div id="poll-results" style="display: none;">
+        <p>Yes: <span id="yes-count">0</span> 🍫</p>
+        <p>No: <span id="no-count">0</span> 😢</p>
+        <p id="total-votes"></p>
+    </div>
+
+    <div id="voted-message" style="display: none;">
+        YAY! You said YES — smartest (and sweetest) decision ever 😍🍫
+    </div>
+
+    <div id="send-result" style="display: none;">
+        <p>Now officially seal the sweetness — send me your YES! 💌</p>
+        <button onclick="sendMyVote()">Confirm & Send to Mounesh 🚀🍫</button>
+    </div>
+
+    <div id="nope-message" style="display: none;">
+        Nope nope nope! Try again, chocolate thief! 😜 (Yes is the only valid choice here)
+    </div>
+</div>
+
+<div class="signature">
+From your forever chocolate buddy, Mounesh 🌟
+</div>
+</main>
+
+<script>
+// Floating chocolates
+function createFloat() {
+    const el = document.createElement("div");
+    el.classList.add("floating");
+    const emojis = ["🍫", "🍬", "🧁", "🍩", "😏", "🚀"];
+    el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDuration = (6 + Math.random() * 8) + "s";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 15000);
+}
+
+const isMobile = window.innerWidth <= 480;
+setInterval(createFloat, isMobile ? 800 : 400);
+
+// Improved music play (unmute on click)
+function playMusic() {
+    const audio = document.getElementById('music');
+    if (audio.paused) {
+        audio.muted = false;
+        audio.play().catch(err => console.log("Play blocked:", err));
+    } else {
+        audio.pause();
+    }
+}
+
+/* Poll Logic */
+document.addEventListener("DOMContentLoaded", function () {
+    const pollForm = document.getElementById("poll-form");
+    const resultsDiv = document.getElementById("poll-results");
+    const votedMsg = document.getElementById("voted-message");
+    const sendDiv = document.getElementById("send-result");
+    const nopeMsg = document.getElementById("nope-message");
+    const yesCountEl = document.getElementById("yes-count");
+    const noCountEl = document.getElementById("no-count");
+    const totalEl = document.getElementById("total-votes");
+    const noLabel = document.getElementById("no-option");
+
+    let votes = JSON.parse(localStorage.getItem("chocolatePoll")) || { yes: 0, no: 0 };
+    let hasVoted = localStorage.getItem("hasVotedChocolate") === "true";
+    let noAttempts = parseInt(localStorage.getItem("noAttempts") || "0");
+
+    function updateResults() {
+        yesCountEl.textContent = votes.yes;
+        noCountEl.textContent = votes.no;
+        const total = votes.yes + votes.no;
+        totalEl.textContent = total > 0 ? `(Total votes: ${total})` : "";
+        resultsDiv.style.display = "block";
+    }
+
+    if (hasVoted) {
+        updateResults();
+        votedMsg.style.display = "block";
+        sendDiv.style.display = "block";
+        pollForm.style.display = "none";
+        nopeMsg.style.display = "none";
+    } else if (noAttempts > 0) {
+        nopeMsg.style.display = "block";
+    }
+
+    pollForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (hasVoted) return;
+
+        const selected = document.querySelector('input[name="vote"]:checked');
+        if (!selected) {
+            alert("Pick something first, lazy bones! 😜");
+            return;
+        }
+
+        if (selected.value === "yes") {
+            votes.yes++;
+            localStorage.setItem("chocolatePoll", JSON.stringify(votes));
+            localStorage.setItem("hasVotedChocolate", "true");
+            hasVoted = true;
+            pollForm.style.display = "none";
+            votedMsg.style.display = "block";
+            sendDiv.style.display = "block";
+            nopeMsg.style.display = "none";
+            updateResults();
+        } else {
+            noAttempts++;
+            localStorage.setItem("noAttempts", noAttempts);
+            noLabel.classList.add("bounce");
+            setTimeout(() => noLabel.classList.remove("bounce"), 600);
+            selected.checked = false;
+            nopeMsg.style.display = "block";
+            if (noAttempts >= 3) {
+                nopeMsg.innerHTML = "STOP RESISTING! Chocolate is destiny 🍫😈 Just click yes already!";
+            }
+        }
+    });
+
+    updateResults();
+});
+
+/* Fixed Send email */
+function sendMyVote() {
+    const yourEmail = "mouneshhpattar944@gmail.com";
+    const subject = "She Said YES on Chocolate Day! 🍫🚀";
+    const body = "Hey Mounesh!\n\nYES I accept being your permanent chocolate-sharing partner-in-crime forever! 😏🍫\n\nNo escaping now — deal sealed!\n\nSent from your epic Chocolate Day page 🌟\n\nLove (or chaos),\nAnushri";
+    
+    const mailtoLink = `mailto:\( {yourEmail}?subject= \){encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, '_blank');
+}
+</script>
+
+</body>
+</html>
