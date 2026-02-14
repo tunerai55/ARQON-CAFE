@@ -3,157 +3,337 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Rose Day, Buddy! 🌹</title>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NTPV468TNZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NTPV468TNZ');
-</script>
+<title>Happy Birthday Bro Bhavin! 🎉</title>
 
 <style>
-html {
-    scroll-behavior: smooth;
+:root {
+    --primary: #ff4500;       /* Orange for energy */
+    --dark-color: #d32f2f;    /* Red for celebration */
+    --light-bg: #ffebee;      /* Light red bg */
+    --text: #333;
 }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(to bottom, #fff3e0, #ffe0b2);
-    color: #333;
+    font-family: 'Comic Sans MS', cursive, sans-serif;  /* Fun font like previous */
+    background: linear-gradient(to bottom, #fffde7, #f5f5f5);
+    color: var(--text);
     text-align: center;
     overflow-x: hidden;
+    min-height: 100vh;
+    font-size: clamp(16px, 3.5vw, 18px);
 }
 
-/* Responsive container */
-section {
-    padding: 40px 15px;
-    max-width: 600px;
-    margin: auto;
-}
+main { padding: clamp(20px, 5vw, 40px) 15px; max-width: 700px; margin: 0 auto; }
 
-/* Title animation */
 h1 {
-    font-size: 2.2em;
-    margin: 10px;
-    color: #e65100;
-    text-shadow: 2px 2px 8px #ffb74d;
-    animation: bounce 1s infinite alternate;
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    margin: 10px 0 20px;
+    color: var(--dark-color);
+    text-shadow: 2px 2px 8px #ef5350;
+    animation: bounce 1.2s infinite alternate;
 }
 
-@keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-8px); }
-}
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
 
-.rose-container img {
-    width: 80%;
-    max-width: 300px;
+.photo-container { margin: 20px auto; max-width: 280px; }
+
+.photo-container img {
+    width: 100%;
+    height: auto;
     border-radius: 50%;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    animation: spin 15s linear infinite;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    animation: spin 20s linear infinite;
+    object-fit: cover;
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.wish-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px auto;
+    padding: 15px;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.wishes {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-top: 25px;
-}
+.wish-container:hover { background-color: #ffebee; }
 
-.signature {
-    font-size: 1.5em;
-    color: #ef6c00;
-    margin-top: 30px;
-}
+.signature { font-size: clamp(1.3rem, 4vw, 1.6rem); color: var(--dark-color); margin: 30px 0; font-weight: bold; }
 
-/* Music button */
 button {
-    padding: 10px 20px;
+    padding: 12px 28px;
     border: none;
-    border-radius: 25px;
-    background: #ff7043;
+    border-radius: 30px;
+    background: var(--primary);
     color: white;
-    font-size: 16px;
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
     cursor: pointer;
-    margin-top: 10px;
+    margin: 12px 8px;
+    min-width: 140px;
+    touch-action: manipulation;
 }
 
-/* Floating roses */
+/* Poll section (birthday-themed prank) */
+.poll-section {
+    margin: clamp(30px, 6vw, 50px) auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    max-width: 90%;
+}
+
+.poll-question { font-size: clamp(1.3rem, 4.5vw, 1.5rem); color: var(--dark-color); margin-bottom: 25px; }
+
+.poll-options label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px 0;
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 12px;
+    transition: background 0.3s;
+}
+
+.poll-options label:hover { background: rgba(211, 47, 47, 0.1); }
+
+.poll-options input[type="radio"] { margin-right: 12px; transform: scale(1.4); }
+
+#no-option { transition: all 0.4s ease; }
+
+#no-option.bounce { animation: nope 0.6s ease; }
+
+@keyframes nope {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-40px) scale(1.1); }
+    50% { transform: translateX(40px) scale(1.1); }
+    75% { transform: translateX(-25px) scale(1.05); }
+    100% { transform: translateX(0) scale(1); }
+}
+
+#poll-results, #voted-message, #send-result, #nope-message { margin-top: 20px; font-size: clamp(1.1rem, 3.5vw, 1.25rem); }
+
+#voted-message, #nope-message { color: #d32f2f; font-weight: bold; }
+
+#send-result button { background: #f44336; font-size: 1.1rem; }
+
+/* Floating birthday emojis */
 .floating {
     position: fixed;
-    bottom: -40px;
-    font-size: 24px;
+    bottom: -50px;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    pointer-events: none;
     animation: floatUp linear forwards;
+    z-index: -1;
 }
 
-@keyframes floatUp {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-110vh);
-        opacity: 0;
-    }
+@keyframes floatUp { from { transform: translateY(0); opacity: 0.9; } to { transform: translateY(-120vh); opacity: 0; } }
+
+@media (min-width: 481px) {
+    main { padding: 50px 20px; }
+    .photo-container { max-width: 320px; }
+    .floating { font-size: 2.5rem; }
 }
 
-/* Mobile optimization */
-@media (max-width: 480px) {
-    h1 { font-size: 1.8em; }
-    .wishes { font-size: 1em; }
+@media (min-width: 768px) {
+    main { max-width: 800px; padding: 60px 30px; }
+    .photo-container { max-width: 380px; }
+    h1 { font-size: 3.2rem; }
+    .poll-section { max-width: 600px; padding: 30px; }
 }
 </style>
 </head>
 
 <body>
 
-<section>
-<button onclick="document.getElementById('music').play()">Play Music 🎵</button>
+<main>
+<button onclick="playMusic()">Play Music 🎵</button>
 
-<audio id="music" loop>
-    <source src="music1.mp3" type="audio/mpeg">
+<audio id="music" loop muted playsinline>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
 </audio>
 
-<h1>Happy Rose Day, My Awesome Friend! 🌹</h1>
+<h1>Happy Birthday, Bro Bhavin! 🎉🥳</h1>
 
-<div class="rose-container">
-<img src="img.jpeg" alt="Bright cheerful roses">
+<div class="photo-container">
+<img src="img.jpeg" alt="Happy Birthday Brother Balloons">
 </div>
 
-<div class="wishes">
-<p>Just dropping by with some friendly petals to say you're the best!</p>
-<p>Thanks for the laughs and fun chaos!</p>
-<p>May your day be full of smiles and zero stress!</p>
-<p>You're one in a million — keep rocking! 🚀</p>
+<div class="wish-container">
+    <p>Dear Bhavin, wishing you a very Happy Birthday! May this special day bring you joy, success, and wonderful opportunities in the year ahead.</p>
+</div>
+
+<div class="wish-container">
+    <p>Happy Birthday, Bhavin! May your day be filled with happiness, good health, and memorable moments with your loved ones.</p>
+</div>
+
+<div class="wish-container">
+    <p>Wishing you a fantastic birthday, Bhavin. May you continue to achieve great things and make your parents proud in everything you do.</p>
+</div>
+
+<div class="wish-container">
+    <p>Happy Birthday, Bhavin! May your journey ahead be filled with learning, success, and endless happiness.</p>
+</div>
+
+<div class="wish-container">
+    <p>Warm birthday wishes to you, Bhavin. May this year bring new achievements, positivity, and great experiences into your life.</p>
+</div>
+
+<!-- Poll Section (fun birthday prank) -->
+<div class="poll-section">
+    <div class="poll-question">Will you be my bro forever? 😎🎉</div>
+    
+    <form id="poll-form" class="poll-options">
+        <label id="yes-option"><input type="radio" name="vote" value="yes"> Yes 🎂 (obviously, bro!)</label>
+        <label id="no-option"><input type="radio" name="vote" value="no"> No 😢 (you wouldn't dare...)</label>
+        <button type="submit" id="vote-btn">Vote! 🚀</button>
+    </form>
+
+    <div id="poll-results" style="display: none;">
+        <p>Yes: <span id="yes-count">0</span> 🎉</p>
+        <p>No: <span id="no-count">0</span> 😢</p>
+        <p id="total-votes"></p>
+    </div>
+
+    <div id="voted-message" style="display: none;">
+        YAY! You said YES — bros for life! 😍🎂
+    </div>
+
+    <div id="send-result" style="display: none;">
+        <p>Now seal the bro deal — send me your YES! 💌</p>
+        <button onclick="sendMyVote()">Confirm & Send to Mounesh 🚀🎉</button>
+    </div>
+
+    <div id="nope-message" style="display: none;">
+        Nope nope nope! Try again, bro! 😜 (Yes is the only valid choice)
+    </div>
 </div>
 
 <div class="signature">
-From your pal, Mounesh 🌟
+From your bro with love, Mounesh 🌟
 </div>
-</section>
+
+<footer>
+    <p>Created with ❤️ by Mounesh | February 14, 2026</p>
+</footer>
+</main>
 
 <script>
-/* Continuous floating roses */
-function createRose() {
+// Floating birthday emojis
+function createFloat() {
     const el = document.createElement("div");
     el.classList.add("floating");
-    el.innerText = "🌹";
-    el.style.left = Math.random() * window.innerWidth + "px";
-    el.style.animationDuration = (5 + Math.random() * 5) + "s";
+    const emojis = ["🎉", "🎂", "🥳", "😎", "🚀", "🍰"];
+    el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDuration = (6 + Math.random() * 8) + "s";
     document.body.appendChild(el);
-    setTimeout(() => el.remove(), 10000);
+    setTimeout(() => el.remove(), 15000);
 }
 
-setInterval(createRose, 400);
+const isMobile = window.innerWidth <= 480;
+setInterval(createFloat, isMobile ? 800 : 400);
+
+// Music play
+function playMusic() {
+    const audio = document.getElementById('music');
+    if (audio.paused) {
+        audio.muted = false;
+        audio.play().catch(err => console.log("Play blocked:", err));
+    } else {
+        audio.pause();
+    }
+}
+
+/* Poll Logic */
+document.addEventListener("DOMContentLoaded", function () {
+    const pollForm = document.getElementById("poll-form");
+    const resultsDiv = document.getElementById("poll-results");
+    const votedMsg = document.getElementById("voted-message");
+    const sendDiv = document.getElementById("send-result");
+    const nopeMsg = document.getElementById("nope-message");
+    const yesCountEl = document.getElementById("yes-count");
+    const noCountEl = document.getElementById("no-count");
+    const totalEl = document.getElementById("total-votes");
+    const noLabel = document.getElementById("no-option");
+
+    let votes = JSON.parse(localStorage.getItem("birthdayPoll")) || { yes: 0, no: 0 };
+    let hasVoted = localStorage.getItem("hasVotedBirthday") === "true";
+    let noAttempts = parseInt(localStorage.getItem("noAttempts") || "0");
+
+    function updateResults() {
+        yesCountEl.textContent = votes.yes;
+        noCountEl.textContent = votes.no;
+        const total = votes.yes + votes.no;
+        totalEl.textContent = total > 0 ? `(Total votes: ${total})` : "";
+        resultsDiv.style.display = "block";
+    }
+
+    if (hasVoted) {
+        updateResults();
+        votedMsg.style.display = "block";
+        sendDiv.style.display = "block";
+        pollForm.style.display = "none";
+        nopeMsg.style.display = "none";
+    } else if (noAttempts > 0) {
+        nopeMsg.style.display = "block";
+    }
+
+    pollForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (hasVoted) return;
+
+        const selected = document.querySelector('input[name="vote"]:checked');
+        if (!selected) {
+            alert("Pick something first, lazy bro! 😜");
+            return;
+        }
+
+        if (selected.value === "yes") {
+            votes.yes++;
+            localStorage.setItem("birthdayPoll", JSON.stringify(votes));
+            localStorage.setItem("hasVotedBirthday", "true");
+            hasVoted = true;
+            pollForm.style.display = "none";
+            votedMsg.style.display = "block";
+            sendDiv.style.display = "block";
+            nopeMsg.style.display = "none";
+            updateResults();
+        } else {
+            noAttempts++;
+            localStorage.setItem("noAttempts", noAttempts);
+            noLabel.classList.add("bounce");
+            setTimeout(() => noLabel.classList.remove("bounce"), 600);
+            selected.checked = false;
+            nopeMsg.style.display = "block";
+            if (noAttempts >= 3) {
+                nopeMsg.innerHTML = "STOP RESISTING! Yes is destiny 🎉😈 Click yes already!";
+            }
+        }
+    });
+
+    updateResults();
+});
+
+/* Send email */
+function sendMyVote() {
+    const yourEmail = "mouneshhpattar944@gmail.com";  // Your email
+    const subject = "He Said YES on Birthday! 🎉🚀";
+    const body = "Hey Mounesh!\n\nYES I accept being your bro forever! 😎🎂\n\nNo escaping now — bro deal sealed!\n\nSent from your epic Birthday page 🌟\n\nFrom Bhavin";
+    
+    const mailtoLink = `mailto:\( {yourEmail}?subject= \){encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, '_blank');
+}
 </script>
 
 </body>
