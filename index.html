@@ -1,340 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Bro Bhavin! 🎉</title>
-
-<style>
-:root {
-    --primary: #ff4500;       /* Orange for energy */
-    --dark-color: #d32f2f;    /* Red for celebration */
-    --light-bg: #ffebee;      /* Light red bg */
-    --text: #333;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-    margin: 0;
-    font-family: 'Comic Sans MS', cursive, sans-serif;  /* Fun font like previous */
-    background: linear-gradient(to bottom, #fffde7, #f5f5f5);
-    color: var(--text);
-    text-align: center;
-    overflow-x: hidden;
-    min-height: 100vh;
-    font-size: clamp(16px, 3.5vw, 18px);
-}
-
-main { padding: clamp(20px, 5vw, 40px) 15px; max-width: 700px; margin: 0 auto; }
-
-h1 {
-    font-size: clamp(1.8rem, 6vw, 2.8rem);
-    margin: 10px 0 20px;
-    color: var(--dark-color);
-    text-shadow: 2px 2px 8px #ef5350;
-    animation: bounce 1.2s infinite alternate;
-}
-
-@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
-
-.photo-container { margin: 20px auto; max-width: 280px; }
-
-.photo-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    animation: spin 20s linear infinite;
-    object-fit: cover;
-}
-
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-.wish-container {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 10px auto;
-    padding: 15px;
-    max-width: 600px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.wish-container:hover { background-color: #ffebee; }
-
-.signature { font-size: clamp(1.3rem, 4vw, 1.6rem); color: var(--dark-color); margin: 30px 0; font-weight: bold; }
-
-button {
-    padding: 12px 28px;
-    border: none;
-    border-radius: 30px;
-    background: var(--primary);
-    color: white;
-    font-size: clamp(1rem, 3.5vw, 1.1rem);
-    cursor: pointer;
-    margin: 12px 8px;
-    min-width: 140px;
-    touch-action: manipulation;
-}
-
-/* Poll section (birthday-themed prank) */
-.poll-section {
-    margin: clamp(30px, 6vw, 50px) auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    max-width: 90%;
-}
-
-.poll-question { font-size: clamp(1.3rem, 4.5vw, 1.5rem); color: var(--dark-color); margin-bottom: 25px; }
-
-.poll-options label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 18px 0;
-    font-size: clamp(1.1rem, 4vw, 1.3rem);
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 12px;
-    transition: background 0.3s;
-}
-
-.poll-options label:hover { background: rgba(211, 47, 47, 0.1); }
-
-.poll-options input[type="radio"] { margin-right: 12px; transform: scale(1.4); }
-
-#no-option { transition: all 0.4s ease; }
-
-#no-option.bounce { animation: nope 0.6s ease; }
-
-@keyframes nope {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-40px) scale(1.1); }
-    50% { transform: translateX(40px) scale(1.1); }
-    75% { transform: translateX(-25px) scale(1.05); }
-    100% { transform: translateX(0) scale(1); }
-}
-
-#poll-results, #voted-message, #send-result, #nope-message { margin-top: 20px; font-size: clamp(1.1rem, 3.5vw, 1.25rem); }
-
-#voted-message, #nope-message { color: #d32f2f; font-weight: bold; }
-
-#send-result button { background: #f44336; font-size: 1.1rem; }
-
-/* Floating birthday emojis */
-.floating {
-    position: fixed;
-    bottom: -50px;
-    font-size: clamp(1.5rem, 5vw, 2.2rem);
-    pointer-events: none;
-    animation: floatUp linear forwards;
-    z-index: -1;
-}
-
-@keyframes floatUp { from { transform: translateY(0); opacity: 0.9; } to { transform: translateY(-120vh); opacity: 0; } }
-
-@media (min-width: 481px) {
-    main { padding: 50px 20px; }
-    .photo-container { max-width: 320px; }
-    .floating { font-size: 2.5rem; }
-}
-
-@media (min-width: 768px) {
-    main { max-width: 800px; padding: 60px 30px; }
-    .photo-container { max-width: 380px; }
-    h1 { font-size: 3.2rem; }
-    .poll-section { max-width: 600px; padding: 30px; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WoodenFurni - Premium Wooden Furniture</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #8B4513; color: white; padding: 20px; text-align: center; }
+        nav { background-color: #A0522D; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .product { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+        .product img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+        .product h3 { margin: 10px 0; color: #8B4513; }
+        .product p { color: #666; }
+        .price { font-size: 1.5em; color: #27AE60; font-weight: bold; }
+        button { background-color: #8B4513; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1em; }
+        button:hover { background-color: #A0522D; }
+        #checkout-form { display: none; background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .order-summary { background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 15px; }
+        footer { background-color: #8B4513; color: white; text-align: center; padding: 10px; margin-top: 40px; }
+    </style>
 </head>
-
 <body>
-
-<main>
-<button onclick="playMusic()">Play Music 🎵</button>
-
-<audio id="music" loop muted playsinline>
-    <source src="music.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-<h1>Happy Birthday, Bro Bhavin! 🎉🥳</h1>
-
-<div class="photo-container">
-<img src="img.jpeg" alt="Happy Birthday Brother Balloons">
-</div>
-
-<div class="wish-container">
-    <p>Yo Bhavin, happy birthday, bro! May this year be like a level-up in your favorite game – full of epic wins, power-ups for success, and zero lag in the happiness department. Keep slaying! 🚀🎮</p>
-</div>
-
-<div class="wish-container">
-    <p>Happy Birthday, Bhavin! Imagine your life as a blockbuster movie – you're the star, success is the plot twist, and this year brings the happiest ending ever. Cheers to more adventures and laughs with the fam! 🍿😄</p>
-</div>
-
-<div class="wish-container">
-    <p>Wishing you an awesome birthday, Bhavin! May you conquer new heights like a superhero, making your parents beam with pride and turning every challenge into a victory dance. Stay unstoppable, champ! 💪🏆</p>
-</div>
-
-<div class="wish-container">
-    <p>Happy Birthday, Bhavin! Think of this year as a treasure hunt – packed with golden opportunities, wisdom gems, and joy surprises. May every step lead to amazing discoveries and unbreakable bonds! 🗺️✨</p>
-</div>
-
-<div class="wish-container">
-    <p>Bro Bhavin, birthday vibes incoming! May your days be as vibrant as a fireworks show, filled with positive energy, killer achievements, and moments that make life feel like one big celebration. Rock on! 🎆🔥</p>
-</div>
-
-<!-- Poll Section (fun birthday prank) -->
-<div class="poll-section">
-    <div class="poll-question">Will you be my bro forever? 😎🎉</div>
-    
-    <form id="poll-form" class="poll-options">
-        <label id="yes-option"><input type="radio" name="vote" value="yes"> Yes 🎂 (obviously, bro!)</label>
-        <label id="no-option"><input type="radio" name="vote" value="no"> No 😢 (you wouldn't dare...)</label>
-        <button type="submit" id="vote-btn">Vote! 🚀</button>
-    </form>
-
-    <div id="poll-results" style="display: none;">
-        <p>Yes: <span id="yes-count">0</span> 🎉</p>
-        <p>No: <span id="no-count">0</span> 😢</p>
-        <p id="total-votes"></p>
+    <header>
+        <h1>🪵 WoodenFurni - Quality Wooden Furniture</h1>
+        <p>Handcrafted wooden furniture for your home</p>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Wooden Dining Table">
+                    <h3>Wooden Dining Table</h3>
+                    <p>Solid oak dining table for 6 people. Perfect for family gatherings.</p>
+                    <div class="price">₹25,000</div>
+                    <button onclick="buyProduct('Wooden Dining Table', 25000)">Buy Now (20% Advance)</button>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76fdd7fd?w=400" alt="Wooden Bed">
+                    <h3>King Size Wooden Bed</h3>
+                    <p>Comfortable king size bed with storage. Premium teak wood.</p>
+                    <div class="price">₹45,000</div>
+                    <button onclick="buyProduct('King Size Wooden Bed', 45000)">Buy Now (20% Advance)</button>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400" alt="Wooden Wardrobe">
+                    <h3>Wooden Wardrobe</h3>
+                    <p>Spacious wardrobe with mirror. Sheesham wood construction.</p>
+                    <div class="price">₹35,000</div>
+                    <button onclick="buyProduct('Wooden Wardrobe', 35000)">Buy Now (20% Advance)</button>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400" alt="Wooden Chair Set">
+                    <h3>Wooden Chair Set (4 pcs)</h3>
+                    <p>Matching chair set for dining room. Ergonomic design.</p>
+                    <div class="price">₹15,000</div>
+                    <button onclick="buyProduct('Wooden Chair Set', 15000)">Buy Now (20% Advance)</button>
+                </div>
+            </div>
+        </section>
+        
+        <div id="checkout-form">
+            <h3 id="selected-product"></h3>
+            <div class="order-summary">
+                <p><strong>Total Amount:</strong> <span id="total-amount"></span></p>
+                <p><strong>Minimum Advance (20%):</strong> <span id="advance-amount"></span></p>
+            </div>
+            <form id="payment-form">
+                <input type="text" id="customer-name" placeholder="Your Name" required><br><br>
+                <input type="email" id="customer-email" placeholder="Your Email" required><br><br>
+                <input type="tel" id="customer-phone" placeholder="Your Phone (+91...)" required><br><br>
+                <input type="text" id="address" placeholder="Shipping Address" required><br><br>
+                <button type="button" onclick="initiatePayment()">Pay Advance with Razorpay</button>
+            </form>
+            <p><small>Remaining balance to be paid on delivery. Contact us after payment for order confirmation.</small></p>
+        </div>
     </div>
+    <footer>
+        <p>&copy; 2026 WoodenFurni. All rights reserved. | Bengaluru, India</p>
+    </footer>
 
-    <div id="voted-message" style="display: none;">
-        YAY! You said YES — bros for life! 😍🎂
-    </div>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        let selectedProduct = '';
+        let totalAmount = 0;
+        let orderId = 'order_DUMMY_123'; // In production, create real order via backend API
 
-    <div id="send-result" style="display: none;">
-        <p>Now seal the bro deal — send me your YES! 💌</p>
-        <button onclick="sendMyVote()">Confirm & Send to Mounesh 🚀🎉</button>
-    </div>
-
-    <div id="nope-message" style="display: none;">
-        Nope nope nope! Try again, bro! 😜 (Yes is the only valid choice)
-    </div>
-</div>
-
-<div class="signature">
-From your bro with love, Mounesh 🌟
-</div>
-
-<footer>
-    <p>Created with ❤️ by Mounesh | February 14, 2026</p>
-</footer>
-</main>
-
-<script>
-// Floating birthday emojis
-function createFloat() {
-    const el = document.createElement("div");
-    el.classList.add("floating");
-    const emojis = ["🎉", "🎂", "🥳", "😎", "🚀", "🍰"];
-    el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    el.style.left = Math.random() * 100 + "vw";
-    el.style.animationDuration = (6 + Math.random() * 8) + "s";
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 15000);
-}
-
-const isMobile = window.innerWidth <= 480;
-setInterval(createFloat, isMobile ? 800 : 400);
-
-// Music play
-function playMusic() {
-    const audio = document.getElementById('music');
-    if (audio.paused) {
-        audio.muted = false;
-        audio.play().catch(err => console.log("Play blocked:", err));
-    } else {
-        audio.pause();
-    }
-}
-
-/* Poll Logic */
-document.addEventListener("DOMContentLoaded", function () {
-    const pollForm = document.getElementById("poll-form");
-    const resultsDiv = document.getElementById("poll-results");
-    const votedMsg = document.getElementById("voted-message");
-    const sendDiv = document.getElementById("send-result");
-    const nopeMsg = document.getElementById("nope-message");
-    const yesCountEl = document.getElementById("yes-count");
-    const noCountEl = document.getElementById("no-count");
-    const totalEl = document.getElementById("total-votes");
-    const noLabel = document.getElementById("no-option");
-
-    let votes = JSON.parse(localStorage.getItem("birthdayPoll")) || { yes: 0, no: 0 };
-    let hasVoted = localStorage.getItem("hasVotedBirthday") === "true";
-    let noAttempts = parseInt(localStorage.getItem("noAttempts") || "0");
-
-    function updateResults() {
-        yesCountEl.textContent = votes.yes;
-        noCountEl.textContent = votes.no;
-        const total = votes.yes + votes.no;
-        totalEl.textContent = total > 0 ? `(Total votes: ${total})` : "";
-        resultsDiv.style.display = "block";
-    }
-
-    if (hasVoted) {
-        updateResults();
-        votedMsg.style.display = "block";
-        sendDiv.style.display = "block";
-        pollForm.style.display = "none";
-        nopeMsg.style.display = "none";
-    } else if (noAttempts > 0) {
-        nopeMsg.style.display = "block";
-    }
-
-    pollForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (hasVoted) return;
-
-        const selected = document.querySelector('input[name="vote"]:checked');
-        if (!selected) {
-            alert("Pick something first, lazy bro! 😜");
-            return;
+        function buyProduct(productName, price) {
+            selectedProduct = productName;
+            totalAmount = price;
+            const advance = Math.round(price * 0.20);
+            
+            document.getElementById('selected-product').textContent = productName;
+            document.getElementById('total-amount').textContent = '₹' + price.toLocaleString();
+            document.getElementById('advance-amount').textContent = '₹' + advance.toLocaleString();
+            document.getElementById('checkout-form').style.display = 'block';
+            document.getElementById('customer-name').focus();
+            
+            // Scroll to form
+            document.getElementById('checkout-form').scrollIntoView({ behavior: 'smooth' });
         }
 
-        if (selected.value === "yes") {
-            votes.yes++;
-            localStorage.setItem("birthdayPoll", JSON.stringify(votes));
-            localStorage.setItem("hasVotedBirthday", "true");
-            hasVoted = true;
-            pollForm.style.display = "none";
-            votedMsg.style.display = "block";
-            sendDiv.style.display = "block";
-            nopeMsg.style.display = "none";
-            updateResults();
-        } else {
-            noAttempts++;
-            localStorage.setItem("noAttempts", noAttempts);
-            noLabel.classList.add("bounce");
-            setTimeout(() => noLabel.classList.remove("bounce"), 600);
-            selected.checked = false;
-            nopeMsg.style.display = "block";
-            if (noAttempts >= 3) {
-                nopeMsg.innerHTML = "STOP RESISTING! Yes is destiny 🎉😈 Click yes already!";
+        function initiatePayment() {
+            const name = document.getElementById('customer-name').value;
+            const email = document.getElementById('customer-email').value;
+            const phone = document.getElementById('customer-phone').value;
+            const address = document.getElementById('address').value;
+            
+            if (!name || !email || !phone || !address) {
+                alert('Please fill all fields');
+                return;
             }
+
+            const advanceAmount = Math.round(totalAmount * 0.20 * 100); // in paise
+
+            const options = {
+                key: 'rzp_test_YOUR_KEY_ID', // Replace with your Razorpay test key [web:1]
+                amount: advanceAmount,
+                currency: 'INR',
+                name: 'WoodenFurni',
+                description: `20% Advance for ${selectedProduct}`,
+                order_id: orderId,
+                prefill: {
+                    name: name,
+                    email: email,
+                    contact: phone
+                },
+                notes: {
+                    product: selectedProduct,
+                    total_amount: totalAmount,
+                    advance: advanceAmount / 100,
+                    address: address
+                },
+                theme: {
+                    color: '#8B4513'
+                },
+                handler: function(response) {
+                    alert('Payment successful! Payment ID: ' + response.razorpay_payment_id + '\nWe will contact you soon for delivery.');
+                    console.log(response); // Send to backend for verification [web:1]
+                    document.getElementById('checkout-form').style.display = 'none';
+                }
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
         }
-    });
-
-    updateResults();
-});
-
-/* Send email */
-function sendMyVote() {
-    const yourEmail = "mouneshhpattar944@gmail.com";  // Your email
-    const subject = "He Said YES on Birthday! 🎉🚀";
-    const body = "Hey Mounesh!\n\nYES I accept being your bro forever! 😎🎂\n\nNo escaping now — bro deal sealed!\n\nSent from your epic Birthday page 🌟\n\nFrom Bhavin";
-    
-    const mailtoLink = `mailto:\( {yourEmail}?subject= \){encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(mailtoLink, '_blank');
-}
-</script>
-
+    </script>
 </body>
 </html>
