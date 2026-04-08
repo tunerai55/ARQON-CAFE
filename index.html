@@ -1,158 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WoodenFurni - Premium Wooden Furniture</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-        header { background-color: #8B4513; color: white; padding: 20px; text-align: center; }
-        nav { background-color: #A0522D; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; }
-        .container { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .product { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
-        .product img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
-        .product h3 { margin: 10px 0; color: #8B4513; }
-        .product p { color: #666; }
-        .price { font-size: 1.5em; color: #27AE60; font-weight: bold; }
-        button { background-color: #8B4513; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1em; }
-        button:hover { background-color: #A0522D; }
-        #checkout-form { display: none; background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .order-summary { background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 15px; }
-        footer { background-color: #8B4513; color: white; text-align: center; padding: 10px; margin-top: 40px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafe ARQON | Grill. Chill. Repeat.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+    .hero-bg { 
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
+                  url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat; 
+    }
+    .gold-text { color: #f5c242; text-shadow: 0 0 20px #f5c242; }
+    .logo-img {
+      filter: drop-shadow(0 10px 15px rgba(245, 194, 66, 0.3));
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <h1>🪵 WoodenFurni - Quality Wooden Furniture</h1>
-        <p>Handcrafted wooden furniture for your home</p>
-    </header>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <div class="container">
-        <section id="products">
-            <h2>Our Products</h2>
-            <div class="product-grid">
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Wooden Dining Table">
-                    <h3>Wooden Dining Table</h3>
-                    <p>Solid oak dining table for 6 people. Perfect for family gatherings.</p>
-                    <div class="price">₹25,000</div>
-                    <button onclick="buyProduct('Wooden Dining Table', 25000)">Buy Now (20% Advance)</button>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76fdd7fd?w=400" alt="Wooden Bed">
-                    <h3>King Size Wooden Bed</h3>
-                    <p>Comfortable king size bed with storage. Premium teak wood.</p>
-                    <div class="price">₹45,000</div>
-                    <button onclick="buyProduct('King Size Wooden Bed', 45000)">Buy Now (20% Advance)</button>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400" alt="Wooden Wardrobe">
-                    <h3>Wooden Wardrobe</h3>
-                    <p>Spacious wardrobe with mirror. Sheesham wood construction.</p>
-                    <div class="price">₹35,000</div>
-                    <button onclick="buyProduct('Wooden Wardrobe', 35000)">Buy Now (20% Advance)</button>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400" alt="Wooden Chair Set">
-                    <h3>Wooden Chair Set (4 pcs)</h3>
-                    <p>Matching chair set for dining room. Ergonomic design.</p>
-                    <div class="price">₹15,000</div>
-                    <button onclick="buyProduct('Wooden Chair Set', 15000)">Buy Now (20% Advance)</button>
-                </div>
-            </div>
-        </section>
+<body class="bg-zinc-950 text-white font-['Inter']">
+
+  <!-- NAVBAR - UPDATED WITH REAL LOGO -->
+  <nav class="bg-black border-b border-amber-900 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- REAL LOGO PLACEHOLDER - REPLACE src WITH YOUR ACTUAL LOGO FILE -->
+        <img src="arqon-logo.png" 
+             alt="Cafe ARQON Logo" 
+             class="logo-img w-12 h-12 object-contain">
         
-        <div id="checkout-form">
-            <h3 id="selected-product"></h3>
-            <div class="order-summary">
-                <p><strong>Total Amount:</strong> <span id="total-amount"></span></p>
-                <p><strong>Minimum Advance (20%):</strong> <span id="advance-amount"></span></p>
-            </div>
-            <form id="payment-form">
-                <input type="text" id="customer-name" placeholder="Your Name" required><br><br>
-                <input type="email" id="customer-email" placeholder="Your Email" required><br><br>
-                <input type="tel" id="customer-phone" placeholder="Your Phone (+91...)" required><br><br>
-                <input type="text" id="address" placeholder="Shipping Address" required><br><br>
-                <button type="button" onclick="initiatePayment()">Pay Advance with Razorpay</button>
-            </form>
-            <p><small>Remaining balance to be paid on delivery. Contact us after payment for order confirmation.</small></p>
+        <div>
+          <h1 class="text-3xl font-bold tracking-widest gold-text">ARQON</h1>
+          <p class="text-xs text-amber-300 tracking-[2px] -mt-1">CAFE</p>
         </div>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#menu" class="hover:text-amber-400 transition">MENU</a>
+        <a href="#about" class="hover:text-amber-400 transition">ABOUT</a>
+        <a href="#visit" class="hover:text-amber-400 transition">VISIT US</a>
+        <a href="#contact" class="hover:text-amber-400 transition">CONTACT</a>
+      </div>
+      <a href="https://zomato.com" target="_blank" 
+         class="bg-amber-500 hover:bg-amber-600 px-6 py-3 rounded-2xl text-black font-semibold flex items-center gap-2 transition">
+        <i class="fas fa-utensils"></i> ORDER ONLINE
+      </a>
     </div>
-    <footer>
-        <p>&copy; 2026 WoodenFurni. All rights reserved. | Bengaluru, India</p>
-    </footer>
+  </nav>
 
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-        let selectedProduct = '';
-        let totalAmount = 0;
-        let orderId = 'order_DUMMY_123'; // In production, create real order via backend API
+  <!-- HERO -->
+  <section class="hero-bg h-screen flex items-center">
+    <div class="max-w-4xl mx-auto text-center px-6">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl mb-6 text-amber-300">
+        <i class="fas fa-fire-flame-curved"></i> GOKAK, KARNATAKA
+      </div>
+      <h1 class="text-7xl md:text-8xl font-bold tracking-tighter gold-text mb-4">CAFE ARQON</h1>
+      <p class="text-4xl md:text-5xl font-light mb-8">Grill. Chill. Repeat.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#menu" class="bg-white text-black px-10 py-5 rounded-3xl font-semibold text-lg flex items-center justify-center gap-3 hover:scale-105 transition">
+          <i class="fas fa-fire"></i> VIEW MENU
+        </a>
+        <a href="#visit" class="border border-white/70 hover:border-amber-400 px-10 py-5 rounded-3xl font-medium text-lg flex items-center justify-center gap-3 transition">
+          FIND US IN GOKAK
+        </a>
+      </div>
+    </div>
+  </section>
 
-        function buyProduct(productName, price) {
-            selectedProduct = productName;
-            totalAmount = price;
-            const advance = Math.round(price * 0.20);
-            
-            document.getElementById('selected-product').textContent = productName;
-            document.getElementById('total-amount').textContent = '₹' + price.toLocaleString();
-            document.getElementById('advance-amount').textContent = '₹' + advance.toLocaleString();
-            document.getElementById('checkout-form').style.display = 'block';
-            document.getElementById('customer-name').focus();
-            
-            // Scroll to form
-            document.getElementById('checkout-form').scrollIntoView({ behavior: 'smooth' });
-        }
+  <!-- ABOUT -->
+  <section id="about" class="max-w-7xl mx-auto px-6 py-20">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-5xl font-bold gold-text mb-6">Premium vibe.<br>Street pricing.</h2>
+        <p class="text-xl text-zinc-400 leading-relaxed">
+          We’re not just another café. ARQON brings you high-quality grilled BBQ and snacks in a premium setting at prices everyone can enjoy.
+        </p>
+        <div class="mt-10 grid grid-cols-2 gap-8 text-sm">
+          <div class="space-y-6">
+            <div><span class="block text-amber-400 font-medium">VISION</span>Premium yet affordable café chain with strong brand identity</div>
+            <div><span class="block text-amber-400 font-medium">MENU FOCUS</span>BBQ Chicken • Shawarma • Wings • Rolls</div>
+          </div>
+          <div class="space-y-6">
+            <div><span class="block text-amber-400 font-medium">FOR YOU</span>College students, young professionals & night owls</div>
+            <div><span class="block text-amber-400 font-medium">COMING SOON</span>AI-powered app, loyalty program & more outlets</div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-zinc-900 rounded-3xl p-8 border border-amber-900">
+        <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3"><i class="fas fa-fire"></i> Why ARQON?</h3>
+        <ul class="space-y-4 text-zinc-300">
+          <li class="flex gap-3"><i class="fas fa-check text-amber-400 mt-1"></i> Consistent premium quality</li>
+          <li class="flex gap-3"><i class="fas fa-check text-amber-400 mt-1"></i> Instagram-worthy plating</li>
+          <li class="flex gap-3"><i class="fas fa-check text-amber-400 mt-1"></i> Fast service & high margins</li>
+          <li class="flex gap-3"><i class="fas fa-check text-amber-400 mt-1"></i> Youth-focused vibe</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        function initiatePayment() {
-            const name = document.getElementById('customer-name').value;
-            const email = document.getElementById('customer-email').value;
-            const phone = document.getElementById('customer-phone').value;
-            const address = document.getElementById('address').value;
-            
-            if (!name || !email || !phone || !address) {
-                alert('Please fill all fields');
-                return;
-            }
+  <!-- MENU -->
+  <section id="menu" class="bg-black py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-center text-5xl font-bold gold-text mb-12">OUR MENU</h2>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- BBQ/Grill -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 border-b border-amber-900 pb-3">BBQ / Grill Items</h3>
+          <div class="space-y-5">
+            <div class="flex justify-between"><span>BBQ Chicken (4 Pieces)</span><span class="text-amber-400 font-medium">₹120</span></div>
+            <div class="flex justify-between"><span>BBQ Chicken (6 Pieces)</span><span class="text-amber-400 font-medium">₹180</span></div>
+            <div class="flex justify-between"><span>Chicken Grill Half</span><span class="text-amber-400 font-medium">₹220</span></div>
+            <div class="flex justify-between"><span>Chicken Grill Full</span><span class="text-amber-400 font-medium">₹400</span></div>
+          </div>
+        </div>
 
-            const advanceAmount = Math.round(totalAmount * 0.20 * 100); // in paise
+        <!-- Chicken Snacks -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 border-b border-amber-900 pb-3">Chicken Snacks</h3>
+          <div class="space-y-5">
+            <div class="flex justify-between"><span>Chicken Shawarma</span><span class="text-amber-400 font-medium">₹100</span></div>
+            <div class="flex justify-between"><span>Chicken Roll</span><span class="text-amber-400 font-medium">₹80</span></div>
+            <div class="flex justify-between"><span>Chicken Wings (5 Pieces)</span><span class="text-amber-400 font-medium">₹120</span></div>
+            <div class="flex justify-between"><span>Chicken Nuggets</span><span class="text-amber-400 font-medium">₹100</span></div>
+          </div>
+        </div>
 
-            const options = {
-                key: 'rzp_test_YOUR_KEY_ID', // Replace with your Razorpay test key [web:1]
-                amount: advanceAmount,
-                currency: 'INR',
-                name: 'WoodenFurni',
-                description: `20% Advance for ${selectedProduct}`,
-                order_id: orderId,
-                prefill: {
-                    name: name,
-                    email: email,
-                    contact: phone
-                },
-                notes: {
-                    product: selectedProduct,
-                    total_amount: totalAmount,
-                    advance: advanceAmount / 100,
-                    address: address
-                },
-                theme: {
-                    color: '#8B4513'
-                },
-                handler: function(response) {
-                    alert('Payment successful! Payment ID: ' + response.razorpay_payment_id + '\nWe will contact you soon for delivery.');
-                    console.log(response); // Send to backend for verification [web:1]
-                    document.getElementById('checkout-form').style.display = 'none';
-                }
-            };
+        <!-- Sides & Drinks -->
+        <div class="md:col-span-2 grid md:grid-cols-2 gap-12 mt-8">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6 border-b border-amber-900 pb-3">Side Items</h3>
+            <div class="space-y-5">
+              <div class="flex justify-between"><span>French Fries</span><span class="text-amber-400 font-medium">₹50</span></div>
+              <div class="flex justify-between"><span>Egg Omelette</span><span class="text-amber-400 font-medium">₹20</span></div>
+              <div class="flex justify-between"><span>Egg Roll</span><span class="text-amber-400 font-medium">₹50</span></div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-6 border-b border-amber-900 pb-3">Cold Drinks</h3>
+            <div class="space-y-5">
+              <div class="flex justify-between"><span>Sweet And Salt Soda</span><span class="text-amber-400 font-medium">₹15</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            const rzp = new Razorpay(options);
-            rzp.open();
-        }
-    </script>
+  <!-- LOCATION & VISIT -->
+  <section id="visit" class="max-w-7xl mx-auto px-6 py-20 bg-zinc-900">
+    <div class="text-center">
+      <h2 class="text-5xl font-bold gold-text mb-4">Visit Us in Gokak</h2>
+      <p class="text-zinc-400 text-lg">Prem K • Cafe Arqon • Gokak, Karnataka</p>
+      <div class="mt-12 bg-black rounded-3xl p-8 max-w-md mx-auto border border-amber-900">
+        <i class="fas fa-map-marker-alt text-6xl text-amber-400 mb-6"></i>
+        <p class="text-xl">Exact address coming soon with grand opening</p>
+        <p class="text-sm text-amber-300 mt-2">Watch this space for Zomato & Swiggy listing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER - UPDATED WITH REAL LOGO -->
+  <footer id="contact" class="bg-black py-16 border-t border-amber-900">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <!-- REAL LOGO IN FOOTER -->
+          <img src="arqon-logo.png" 
+               alt="Cafe ARQON Logo" 
+               class="logo-img w-12 h-12 object-contain">
+          <h1 class="text-3xl font-bold gold-text">ARQON</h1>
+        </div>
+        <p class="text-zinc-400">Premium grilled café experience.<br>Gokak, Karnataka</p>
+        <p class="text-xs text-zinc-500 mt-8">© 2026 Cafe ARQON • All Rights Reserved</p>
+      </div>
+      <div class="text-sm space-y-2">
+        <a href="#" class="block hover:text-amber-400">Instagram</a>
+        <a href="#" class="block hover:text-amber-400">Zomato</a>
+        <a href="#" class="block hover:text-amber-400">Swiggy</a>
+      </div>
+      <div>
+        <p class="text-sm text-zinc-400">Want to stay updated for our grand opening?</p>
+        <div class="mt-4 flex">
+          <input type="email" placeholder="Your email" 
+                 class="bg-zinc-900 border border-amber-900 rounded-l-3xl px-6 py-4 text-sm flex-1 outline-none">
+          <button class="bg-amber-500 text-black px-8 rounded-r-3xl font-medium">JOIN</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    console.log('%c✅ Cafe ARQON website updated with new logo!', 'color:#f5c242; font-size:20px; font-weight:bold');
+  </script>
 </body>
 </html>
