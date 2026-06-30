@@ -210,13 +210,31 @@
       </div>
 
       <div>
-        <p class="text-sm text-zinc-400">Want to stay updated for our grand opening?</p>
-        <div class="mt-4 flex">
-          <input type="email" placeholder="Your email"
-                 class="bg-zinc-900 border border-amber-900 rounded-l-3xl px-6 py-4 text-sm flex-1 outline-none">
-          <button class="bg-amber-500 text-black px-8 rounded-r-3xl font-medium">JOIN</button>
+    <p class="text-sm text-zinc-400">
+        Want to stay updated?
+    </p>
+
+    <form action="https://formspree.io/f/xkolvqzb"
+          method="POST"
+          class="mt-4">
+
+        <div class="flex">
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+                class="bg-zinc-900 border border-amber-900 rounded-l-3xl px-6 py-4 text-sm flex-1 outline-none text-white">
+
+            <button
+                type="submit"
+                class="bg-amber-500 hover:bg-amber-400 transition text-black px-8 rounded-r-3xl font-semibold">
+                JOIN
+            </button>
         </div>
-      </div>
+
+    </form>
+</div>
     </div>
   </footer>
 
